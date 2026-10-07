@@ -5,10 +5,11 @@ from main import TriangleAnalyzer
 class TestTriangle(unittest.TestCase):
     def setUp(self):
         self.tr = TriangleAnalyzer()
-
+        self.tr_strict = TriangleAnalyzer(eps=0)
 
     def tearDown(self):
         del self.tr
+        del self.tr_strict
 
     # ---------- Корректные треугольники ----------
 

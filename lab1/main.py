@@ -23,7 +23,7 @@ logging.info("Приложение запущено")
 
 
 class TriangleAnalyzer:
-    def __init__(self, eps=1e-9):
+    def __init__(self, eps: object = 1e-9) -> None:
         self.eps = eps
 
     def analyze(self, side1, side2, side3):
