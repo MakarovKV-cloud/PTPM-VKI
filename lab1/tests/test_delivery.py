@@ -20,7 +20,7 @@ class TestCalcDel(unittest.TestCase):
         self.assertEqual((Delivery.calculate_delivery_cost(1, -1000,"обычный", False )), (-1,"0000-00-00"))
 
     def test_exceed_dist(self):
-        self.assertEqual((Delivery.calculate_delivery_cost(1, -1000,"обычный", False )), (-1,"0000-00-00"))
+        self.assertEqual((Delivery.calculate_delivery_cost(1, 61000,"обычный", False )), (-1,"0000-00-00"))
 
     def test_another_package_type(self):
         self.assertEqual((Delivery.calculate_delivery_cost(1, 1,"маленький", False)), (-1,"0000-00-00"))

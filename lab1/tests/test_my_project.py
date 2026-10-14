@@ -34,7 +34,6 @@ class TestTriangle(unittest.TestCase):
     def test_right_triangle(self):
         """Прямоугольный треугольник 3-4-5: проверка координат."""
         result, coords = self.tr.analyze(3, 4, 5)
-        # Первая вершина всегда (0, 0), вторая (side3, 0) = (5, 0)
         self.assertEqual(coords[0], [0, 0])
         self.assertEqual(coords[1], [5, 0])
         # Третья вершина: x = (side2^2 + side3^2 - side1^2) / (2*side3)
@@ -74,7 +73,7 @@ class TestTriangle(unittest.TestCase):
         """Почти треугольник: 1, 2, 3 + eps — при eps=1e-9 считается не треугольником."""
         result, coords = self.tr.analyze(1, 2, 3 + 1e-10)
         self.assertEqual(result, "Не треугольник")
-
+        self.assertEqual(coords, [[-1, -1], [-1, -1], [-1, -1]])
     # ---------- Граничные случаи ----------
 
     def test_very_small_sides(self):
