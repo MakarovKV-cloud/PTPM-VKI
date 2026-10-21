@@ -87,6 +87,10 @@ class TestTriangle(unittest.TestCase):
         result, coords = self.tr.analyze(1e6, 1.1e6, 1.2e6)
         self.assertEqual(result, "Треугольник разносторонний")
         self.assertEqual(len(coords), 3)
+    def test_0_1(self):
+        result, coords = self.tr.analyze(0.1, 0.2, 0.3)
+        self.assertEqual(result, "Не треугольник")
+        self.assertEqual(coords, [[-1, -1], [-1, -1], [-1, -1]])
 
 
 if __name__ == "__main__":
