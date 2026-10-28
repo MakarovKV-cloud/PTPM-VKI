@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 from src.analyzer import TriangleAnalyzer
 from src.database import TriangleDatabase
@@ -26,10 +26,9 @@ def make_controller(stub_input, mock_external=None, db=None):
 
 
 class TestIntegration(unittest.TestCase):
-    """Интеграционные тесты (>=3)."""
 
     def test_full_scenario_new_data(self):
-        """Сценарий: данные не в БД → вычисление → сохранение → отправка."""
+        """Сценарий: данные не в БД -> вычисление -> сохранение -> отправка."""
         db = TriangleDatabase()
         external = MagicMock(spec=ExternalService)
         external.send_data.return_value = True
@@ -45,7 +44,7 @@ class TestIntegration(unittest.TestCase):
         db.close()
 
     def test_scenario_from_cache(self):
-        """Сценарий: данные есть в БД → берём из БД, анализатор не вызывается."""
+        """Сценарий: данные есть в БД -> берём из БД, анализатор не вызывается."""
         db = TriangleDatabase()
         db.add_record(3.0, 4.0, 5.0, "Треугольник разносторонний", None)
 
@@ -65,7 +64,7 @@ class TestIntegration(unittest.TestCase):
         db.close()
 
     def test_scenario_invalid_triangle(self):
-        """Сценарий: не треугольник → ошибка сохраняется в БД и отправляется."""
+        """Сценарий: не треугольник -> ошибка сохраняется в БД и отправляется."""
         db = TriangleDatabase()
         external = MagicMock(spec=ExternalService)
         external.send_data.return_value = True

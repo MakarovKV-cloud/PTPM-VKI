@@ -2,8 +2,6 @@ from abc import ABC, abstractmethod
 
 
 class ExternalService(ABC):
-    """Абстрактный интерфейс сторонней зависимости."""
-
     @abstractmethod
     def send_data(self, data: str) -> bool:
         """Имитация отправки данных на внешний сервер."""
