@@ -37,9 +37,7 @@ class TestIntegration(unittest.TestCase):
         result = controller.run()
 
         self.assertEqual(result, "Треугольник разносторонний")
-        # Запись появилась в БД
         self.assertIsNotNone(db.get_record(3.0, 4.0, 5.0))
-        # Отправка произошла
         external.send_data.assert_called_once_with("Треугольник разносторонний")
         db.close()
 
